@@ -1,0 +1,15 @@
+  <div class="gallery__item">
+    <span *ngIf="!pageOfItems || pageOfItems.length==0"> No hay resultados </span>
+    <ng-container *ngFor="let item of pageOfItems">
+      <div style="flex-basis: 17%;margin-bottom: 20px;">
+        <a [routerLink]="['/main/profile/'+item.id]">
+          <img src="http://{{item.cover.slice(2).replace('t_thumb', 't_cover_big')}}"alt="Img">
+        </a>
+        <p>{{item.name}}</p>
+      </div>
+    </ng-container>
+  </div>
+<div class="barraPaginacion">
+  <jw-pagination [items]="data" (changePage)="onChangePage($event)"></jw-pagination>
+</div>
+
